@@ -1,0 +1,89 @@
+{% load static%}
+{% include 'bootstrap.html'%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'iginfomation/styles.css' %}">
+    <script src="https://kit.fontawesome.com/c8de22c177.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" type="image/x-icon">
+    <title>IG-TRACKER</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="header__left">
+                <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" alt="">
+                <h1>IG Info</h1>
+            </div>
+            <div class="header__center">
+                <form class="search__bar">
+                    {% csrf_token %}
+                    <input type="text" placeholder="type username..." name="search_term">
+                    <button type="submit" class="search__btn">
+                        <i class="fas fa-search"></i> 
+                    </button>
+                </form>
+            </div>
+            <div class="header__right">
+                <!-- <small>Time</small> -->
+            </div>
+        </div>
+    
+        <div class="ig__infom">
+
+        </div>
+        <div class="ig__info">
+            <div class="ig__infoleft">
+                <h1>IG Profile Info</h1>
+                <div class="avatar">
+                    <img src="{{data.img}}" alt="image">
+                </div>
+                <small class="username"><strong>{{data.username}}</strong></small>
+                <div class="user__info">
+                    <small><strong>Username</strong> <span>{{data.username}}</span></small>
+                    <small>Followers <strong>{{data.followers}}</strong></small>
+                    <small>followings <strong>{{data.following}}</strong></small>
+                    <small>post <strong>{{data.post}}</strong></small>
+                </div>
+                <form method="GET" class="button__left--card">
+                    {% csrf_token %}
+                    <button class="btn btn-primary" name="profile" value="{{data.img}}" type="submit">
+                        Save Profile
+                    </button>
+                    <button class="btn btn-warning">
+                        <a href="{{data.profile_url}}">View Profile</a>
+                    </button>
+                </form>
+            </div>
+            <div class="ig__inforight">
+                <h1>Posts</h1>
+                <div class="post__container">
+                     <div class="post">
+                         <center>
+                           <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" alt="">
+                         </center>
+                         
+                            <button class="btn btn-warning">Save</button>
+                    </div>
+                    <div class="post">
+                        <center>
+                          <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" alt="">
+                        </center>
+                           <button class="btn btn-warning">Save</button>
+                   </div>
+                   <div class="post">
+                    <center>
+                      <img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c521.png" alt="">
+                    </center>
+                       <button class="btn btn-warning">Save</button>
+               </div>
+                </div>
+            </div>
+        </div>
+        <!-- {{data}} -->
+{{data.soup}}
+    </div>
+</body>
+</html>
