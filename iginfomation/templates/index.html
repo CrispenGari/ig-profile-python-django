@@ -30,10 +30,6 @@
                 <!-- <small>Time</small> -->
             </div>
         </div>
-    
-        <div class="ig__infom">
-
-        </div>
         <div class="ig__info">
             <div class="ig__infoleft">
                 <h1>IG Profile Info</h1>
@@ -47,7 +43,7 @@
                     <small>followings <strong>{{data.following}}</strong></small>
                     <small>post <strong>{{data.post}}</strong></small>
                 </div>
-                <form method="GET" class="button__left--card">
+                <div method="GET" class="button__left--card">
                     {% csrf_token %}
                     <button class="btn btn-primary" name="profile" value="{{data.img}}" type="submit">
                         Save Profile
@@ -55,7 +51,7 @@
                     <button class="btn btn-warning">
                         <a href="{{data.profile_url}}">View Profile</a>
                     </button>
-                </form>
+                </div>
             </div>
             <div class="ig__inforight">
                 <h1>Posts</h1>

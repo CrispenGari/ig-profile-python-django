@@ -80,12 +80,12 @@ body {
 }
 
 .ig__info {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: flex !important;
+  justify-content: space-around !important;
   padding: 30px 10px !important;
   width: 100vw;
   margin: auto !important;
+  align-items: center !important;
 }
 .ig__inforight,
 .ig__infoleft {
